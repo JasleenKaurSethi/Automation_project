@@ -28,7 +28,7 @@ name="Jasleen"
 tar_file_name="$name-httpd-logs-$timestamp"
 echo $tar_file_name
 tar -zcvf $tar_file_name.tar.gz /var/log/apache2/*.log
-mv $tar_file_name.tar.gz /tmp
+cp $tar_file_name.tar.gz /tmp
 aws s3 cp /tmp/$tar_file_name.tar.gz s3://$s3_bucket/$tar_file_name.tar.gz
 if [ -e /var/www/html/inventory.html ]
 then
